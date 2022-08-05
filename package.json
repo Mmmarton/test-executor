@@ -4,7 +4,7 @@
   "main": "main.js",
   "author": "Marton Cserei <marton.cserei@nanolabs.ro>",
   "scripts": {
-    "test": "jest"
+    "test": "jest --json --outputFile=test-results.json"
   },
   "dependencies": {
     "shelljs": "^0.8.5"

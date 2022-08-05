@@ -10,4 +10,4 @@ if (shell.exec('git pull').code !== 0) {
     shell.exit(1);
 }
 
-console.log(shell.exec('npm run test'));
+shell.exec('npm run test');
