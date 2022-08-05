@@ -1,0 +1,15 @@
+{
+  "name": "test-executor",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "Marton Cserei <marton.cserei@nanolabs.ro>",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
