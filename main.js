@@ -5,13 +5,9 @@ if (!shell.which('git')) {
     shell.exit(1);
 }
 
-if (shell.exec('git pull').code !== 0) {
-    shell.echo('Error: Git pull failed');
-    shell.exit(1);
-}
-
 shell.exec('npm run test');
 
 const results = require('./test-results.json');
+const failedTests = results.testResults[0].assertionResults.filter(({ status }) => status === 'failed').map(test => test.fullName);
 
-console.log({ total: results.numTotalTests, passed: results.numPassedTests });
+console.log({ total: results.numTotalTests, passed: results.numPassedTests, failedTests });
