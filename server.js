@@ -9,9 +9,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body);
   const push = req.body;
-  console.log({ pusher: push.pusher.name });
+  const branch = pysh.ref.replace("refs/heads/", "");
+  console.log({ pusher: push.pusher.name, branch });
   res.send();
 });
 
