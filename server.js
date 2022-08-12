@@ -9,7 +9,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body);//
+  console.log(req.body);
+  const push = req.body;
+  console.log({ pusher: push.pusher.name });
   res.send();
 });
 
