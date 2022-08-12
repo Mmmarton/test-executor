@@ -9,7 +9,6 @@ function setupGit() {
 
 function runTests() {
   shell.exec("npm run test");
-
   const results = require("./test-results.json");
   const failedTests = results.testResults[0].assertionResults
     .filter(({ status }) => status === "failed")

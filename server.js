@@ -34,7 +34,7 @@ function handlePush(push) {
     if (failCount) {
       const fails = testResults.failedTests.join();
       console.log(
-        `The last push on ${branch} made by ${pusher} has ${failCount} tests failing. Check out them: \`${fails}\``
+        `The last push on \`${branch}\` made by \`${pusher}\` has ${failCount} tests failing. Check out them: \`${fails}\``
       );
     } else {
       console.log(`Push on ${branch} by ${pusher}. All good.`);
