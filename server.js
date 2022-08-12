@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   const push = req.body;
-  const branch = pysh.ref.replace("refs/heads/", "");
+  const branch = push.ref.replace("refs/heads/", "");
   console.log({ pusher: push.pusher.name, branch });
   res.send();
 });
