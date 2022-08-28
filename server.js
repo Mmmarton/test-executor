@@ -19,9 +19,7 @@ app.listen(port, () => {
 });
 
 function handlePush(body) {
-  const branch = body.ref;
-  branch.replace("refs/heads/", "");
-
+  const branch = body.ref.replace("refs/heads/", "");
   const pusher = body.pusher;
 
   console.log({ branch, pusher });
