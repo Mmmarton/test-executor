@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   console.log(req.body); //
-  setTimeout(handlePush(req.body));
+  setTimeout(() => handlePush(req.body));
   res.send();
 });
 
