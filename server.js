@@ -1,4 +1,5 @@
 const express = require("express");
+const executor = require("./executor");
 const app = express();
 const port = 3000;
 
@@ -9,7 +10,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body); //
   setTimeout(() => handlePush(req.body));
   res.send();
 });
@@ -23,4 +23,17 @@ function handlePush(body) {
   const pusher = body.pusher;
 
   console.log({ branch, pusher });
+
+  executor.execute();
+
+  const results = require("./test-results.json");
+  const failedTests = results.testResults[0].assertionResults
+    .filter(({ status }) => status === "failed")
+    .map((test) => test.fullName);
+
+  console.log({
+    total: results.numTotalTests,
+    passed: results.numPassedTests,
+    failedTests,
+  });
 }
