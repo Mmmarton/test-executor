@@ -9,10 +9,20 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body);//
+  console.log(req.body); //
+  setTimeout(handlePush(req.body));
   res.send();
 });
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+function handlePush(body) {
+  const branch = body.ref;
+  branch.replace("refs/heads/", "");
+
+  const pusher = body.pusher;
+
+  console.log({ branch, pusher });
+}
