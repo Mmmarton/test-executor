@@ -15,7 +15,7 @@ app.post("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on portt ${port}`);
 });
 
 function handlePush(body) {
